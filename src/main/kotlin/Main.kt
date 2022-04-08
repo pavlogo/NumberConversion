@@ -10,21 +10,22 @@ fun run() {
     var from = ""
     while (from != "/exit") {
         println("Enter two numbers in format: {source base} {target base} (To quit type /exit)")
+        println("( min base is 2, max base is 36 )")
         from = sc.next()
-        if (from == "/exit") break
+        if (from == "/exit" || from == "exit") break
         val to = sc.next()
+        if (to == "/exit" || to == "exit") break
         var num = ""
         while (num != "/back") {
             println("Enter number in base $from to convert to base $to (To go back type /back)")
             num = sc.next()
-            if (num == "/back") break
+            if (num == "/back" || num == "back") break
             print("Conversion result: ")
             println(fromDec(toDec(num, from), to))
             println()
         }
     }
 }
-
 
 fun fromDec(n: String, b: String): String {
     val check = n
